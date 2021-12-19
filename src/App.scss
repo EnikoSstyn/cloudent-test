@@ -1,0 +1,391 @@
+$bgcolor:#ECEFF0;
+$header: #2E455C;
+$information: #CCD1F0;
+$button: #6270C7;
+$newfieldBg: #F7F9FB;
+$deletebtn: #EF5E37;
+$deletebtnBorder: #bd3d19;
+$cancelbtn: #FDFDFE;
+$createbtn: #5F6EC7;
+$createBtnBorder: #4e5aa1;
+$btnborder: #DDD;
+$borderbox: #B5C6D2;
+$borderBottom: #ececec;
+$selectBorder: #bcbdbd;
+$modalBg: rgba(0, 0, 0, 0.5);
+$mobileFontSize: 13px;
+$tabletFontSize:15px;
+$largeScreenFontSize:17px;
+$fontFamily: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+@mixin hideInput {width: 0; height: 0; position: absolute; left: -9999px;}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: $bgcolor;
+    font-family:$fontFamily;
+    font-size: $mobileFontSize;
+}
+.clickable{
+    cursor: pointer;
+}
+
+.header{
+    background-color: $header;
+    overflow: hidden;
+}
+
+.search{
+    width: 20%;
+    height: 30px;
+    background-color: $borderbox;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+    
+}
+::placeholder{
+    padding-left: .3rem;
+}
+.main{
+    display: grid;
+    grid-template-columns: 3fr 8fr 1fr;
+}
+
+.sidebar{
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: .5rem;
+    height: 50%;
+    a{
+        text-decoration: none;
+        color: $header;
+        padding:.5rem;
+    }
+    h2{
+        padding:0;
+        margin:0;
+        height: 100%;
+        color: $header;
+    }
+}
+
+.sidebox{
+    background-color: $borderbox;
+    width: 50%;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.mainpage{
+    padding: 1.5rem;
+    max-width: 800px;
+    h4{
+      color:$borderbox;
+    }
+    h2{
+        color:$header;
+        padding-bottom: 1rem;
+    }
+    h3{
+        padding-top: 2rem;
+        padding-bottom: .5rem;
+    }
+}
+.user{
+    font-style: italic;
+    font-size: .8em;
+}
+.information{
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    padding: 1rem;
+    background-color: $information;
+    border-radius: 10px;
+}
+
+.listField{
+    background-color: white;
+    margin-top: 1rem;
+}
+.list{
+    border-bottom: 2px solid $borderBottom;
+    padding: 1rem;
+    h5{
+        display: flex;
+        align-items: center; 
+        
+    }
+}
+.boolean{
+    display: grid;
+    grid-template-columns: 10fr 1fr 1fr;
+    align-items: center;
+}
+.textInput{
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+    margin-top: 1rem;
+    align-items: center;
+}
+.toggle{
+    box-sizing: border-box;
+    font-size: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    input {@include hideInput;}
+    input + label{
+        margin: 0;
+        padding: .3rem 2rem;
+        box-sizing: border-box;
+        position: relative;
+        display: inline-block;
+        border: solid 1px $btnborder;
+        background-color: white;
+        font-size: .8rem;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+input:checked + label {
+    background-color: $button;
+}
+.addBtn{
+    padding:1.5rem;
+}
+.newFieldBtn{
+    border: 1px dashed $button;
+    background-color: $newfieldBg;
+    color: $button;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+#text{
+    width: 100%;
+}
+
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $modalBg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button{
+        padding: .6rem 1rem;
+        border-radius: 3px;
+    }
+}
+
+.modal-content{
+    background-color: $bgcolor;
+}
+
+.modalTitle{
+    background-color: $header;
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+    align-items: center;
+    padding: 0 1rem;
+    color:white;
+    font-size: 15px;
+}
+
+.close{
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+    padding-left: 20px;
+}
+
+.modal-body{
+    padding: 1.5rem;
+}
+
+.modalFields{
+    display: grid;
+    grid-template-rows: 6fr 6fr;
+    padding: 1.5rem;
+    border-bottom: 2px solid $borderBottom;
+    input, select{
+        padding: .5rem;
+        border: solid 0.5px $selectBorder;
+        border-radius: 3px;
+    }
+}
+
+.modalForm{
+    border: solid 2px $borderBottom;
+    border-radius: 3px;
+    background-color: white;
+    color: $header;
+    font-weight: bold;
+}
+
+.modalDeleteBtn{
+    background-color: $deletebtn;
+    color: white;
+    border: solid 0.5px $deletebtnBorder;
+    width: 30%;
+}
+
+.modalCancelBtn{
+    background-color: $cancelbtn;
+    border: solid 0.5px $btnborder;
+    
+}
+
+.modalCreateBtn{
+    background-color: $createbtn;
+    color: white;
+    border: solid 0.5px $createBtnBorder;
+    margin-left: 10px;
+}
+
+.modalButtons{
+    display: grid;
+    grid-template-columns: 7fr 2fr 2fr;
+    margin: 1.5rem;
+}
+
+
+.navburger{
+    display: inline;
+}
+.hamburger{
+    padding: 1.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 10;
+}
+.burger{
+    width: 1.2rem;
+    height: .2rem;
+    border-radius: 10px;
+    background-color: white;
+    transform-origin: 1px;
+    transition: all 0.3s linear;
+}
+.navbar{
+    display: none;
+}
+.toggleNavbar{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 50px;
+    background-color: $header;
+    width: 100%;
+    .navbar-items{
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-items a{
+        text-decoration: none;
+        color:white;
+        padding:.5rem .3rem;
+    }
+}
+
+.toggleNavburger{
+    position: relative;
+}
+
+
+////// tablet ////////
+@media only screen and (min-width: 767px) {
+    body{
+        font-size: $tabletFontSize;
+    }
+    .navburger{
+        display: inline;
+    }
+    .hamburger{
+        padding: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .burger{
+        width: 1.5rem;
+        height: .2rem;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: 3fr 5fr 1fr;
+    }
+
+    .sidebar{
+        padding:1rem;
+        a{
+            padding:.7rem;
+        }
+    }
+}
+//////Large devices/////////////
+@media only screen and (min-width: 1200px) {
+    body{
+        font-size: $largeScreenFontSize;
+    }
+    .navburger{
+        display: none;
+    }
+    .navbar{
+        display:flex;
+        height: 50px;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar a{
+        text-decoration: none;
+        color: $btnborder;
+        padding: 0 1rem;
+    }
+    .search{
+        width: 400px;
+        height: 30px;
+        background-color: $borderbox;
+        border: none;
+        border-radius: 2px;
+        font-weight: bold;
+        
+    }
+    ::placeholder{
+        padding-left: .3rem;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: 3fr 5fr 1fr;
+    }
+
+    .sidebar{
+        padding:1rem;
+        a{
+            padding:.7rem;
+        }
+    }
+}
